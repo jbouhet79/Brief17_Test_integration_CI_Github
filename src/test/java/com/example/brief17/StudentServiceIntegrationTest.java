@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.example.brief17.entity.Student;
 import com.example.brief17.service.StudentService;
@@ -16,6 +15,7 @@ import java.util.Optional;
 
 // TODO: Ajouter les tags nécessaires pour charger H2, charger le profil de test et importer le StudentService
 @DataJpaTest // Charge la BDD H2 en mémoire pour les tests et JPA
+@ActiveProfiles("test") //  Pour spécifier que le profil de test doit être actif lors de l'exécution de ce test.
 @Import(StudentService.class) // Importer le StudentService
 class StudentServiceIntegrationTest {
 
